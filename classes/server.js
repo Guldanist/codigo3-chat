@@ -15,7 +15,7 @@ class Server {
         // CONFIGURANDO EL CORS
         this.app.use((req, res, next) => {
             // todos se deben conectar de este dominio:
-            res.header('Access-Control-Allow-Origin', 'http://localhost:4200');
+            res.header('Access-Control-Allow-Origin', 'http://codigo3chatmau.epizy.com/');
             res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
             res.header('Access-Control-Allow-Methods', 'GET, POST');
             res.header('Allow', 'GET,POST');
@@ -76,6 +76,7 @@ class Server {
                 nombre: de
             };
             this.io.to(para).emit('nuevo-mensaje', content);
+            res.status(200).send();
         });
     }
     start() {
